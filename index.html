@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>אחיה בן הרוש | אימוני קליסטניקס</title>
+
+  <!-- Open Graph – תצוגה מקדימה בוואצפ ורשתות חברתיות -->
+  <meta property="og:title" content="אחיה בן הרוש | אימוני קליסטניקס" />
+  <meta property="og:description" content="תוכנית אימונים מותאמת אישית לגוף שלך, בזמן שלך, מכל מקום בעולם." />
+  <meta property="og:image" content="https://achiya-ben-harush.netlify.app/og-image.jpg" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://achiya-ben-harush.netlify.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #22C55E;
+      --green-dark: #16a34a;
+      --green-light: #4ade80;
+      --red: #EF4444;
+      --red-dark: #DC2626;
+      --red-light: #f87171;
+      --black: #f8f8f8;
+      --dark: #efefef;
+      --dark2: #ffffff;
+      --white: #111111;
+      --gray: #e8e8e8;
+      --text-muted: #666666;
+    }
+
+    html[data-theme="dark"] {
+      --black: #111111;
+      --dark: #1a1a1a;
+      --dark2: #222222;
+      --white: #ffffff;
+      --gray: #f5f5f5;
+      --text-muted: #888888;
+    }
+
+    html[data-theme="dark"] .hero h1 .name-sub,
+    html[data-theme="dark"] .hero-tagline,
+    html[data-theme="dark"] .hero-scroll,
+    html[data-theme="dark"] .stat-label,
+    html[data-theme="dark"] .section-sub,
+    html[data-theme="dark"] .about-title-card,
+    html[data-theme="dark"] .about-text p,
+    html[data-theme="dark"] .feature-desc,
+    html[data-theme="dark"] .step-desc,
+    html[data-theme="dark"] .contact-info p,
+    html[data-theme="dark"] .footer-sub {
+      color: rgba(255,255,255,0.55);
+    }
+
+    html[data-theme="dark"] .hero-tagline strong,
+    html[data-theme="dark"] .about-text p strong {
+      color: #ffffff;
+    }
+
+    html[data-theme="dark"] .btn-secondary {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    html[data-theme="dark"] .feature-card {
+      border-color: rgba(255,255,255,0.07);
+    }
+
+    html[data-theme="dark"] .form-group label {
+      color: rgba(255,255,255,0.6);
+    }
+
+    html[data-theme="dark"] .form-group input,
+    html[data-theme="dark"] .form-group select,
+    html[data-theme="dark"] .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+      color: #ffffff;
+    }
+
+    html[data-theme="dark"] .form-group input::placeholder,
+    html[data-theme="dark"] .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    html[data-theme="dark"] .form-group select option {
+      background: #222222;
+      color: #ffffff;
+    }
+
+    html[data-theme="dark"] .form-note {
+      color: rgba(255,255,255,0.3);
+    }
+
+    html[data-theme="dark"] .form-title {
+      color: #ffffff;
+    }
+
+    /* ─── THEME TOGGLE BUTTON ─────────────────────────── */
+    #theme-toggle {
+      position: fixed;
+      top: 85px;
+      left: 28px;
+      z-index: 9999;
+      background: var(--dark2);
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      transition: all 0.25s;
+    }
+
+    html[data-theme="dark"] #theme-toggle {
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    #theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+    }
+
+    #theme-toggle .toggle-icon {
+      font-size: 1.1rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      direction: rtl;
+      text-align: right;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('לוגו-שקוף.png');
+      background-repeat: repeat;
+      background-size: 280px auto;
+      background-attachment: fixed;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(17,17,17,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(34,197,94,0.15);
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--green);
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: var(--black);
+      border: none;
+      padding: 10px 26px;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      background: var(--red-light);
+      transform: scale(1.04);
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(34,197,94,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.35);
+      color: var(--green);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 8px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 .name-green {
+      color: var(--green);
+    }
+
+    .hero h1 .name-sub {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400;
+      display: block;
+      color: rgba(0,0,0,0.55);
+      letter-spacing: 0px;
+      margin-top: 4px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: rgba(0,0,0,0.7);
+      margin-top: 28px;
+      margin-bottom: 44px;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero-tagline strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--black);
+      border: none;
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--red-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(239,68,68,0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(0,0,0,0.25);
+      padding: 16px 38px;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .hero-scroll {
+      margin-top: 64px;
+      color: rgba(0,0,0,0.3);
+      font-size: 0.8rem;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(34,197,94,0.6), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ─── STATS BAR ───────────────────────────────────── */
+    .stats-bar {
+      background: var(--dark2);
+      border-top: 1px solid rgba(34,197,94,0.15);
+      border-bottom: 1px solid rgba(34,197,94,0.15);
+      padding: 36px 24px;
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.5);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    /* ─── SECTION SHARED ──────────────────────────────── */
+    section {
+      padding: 90px 24px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+
+    .section-title span {
+      color: var(--green);
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: rgba(0,0,0,0.55);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────── */
+    .about {
+      background: var(--dark);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--dark2);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(34,197,94,0.12) 0%, transparent 70%);
+    }
+
+    .about-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid rgba(34,197,94,0.5);
+      display: block;
+      margin: 0 auto 28px;
+      box-shadow: 0 0 0 6px rgba(34,197,94,0.08);
+    }
+
+    .about-name-big {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .about-name-big span {
+      color: var(--green);
+    }
+
+    .about-title-card {
+      text-align: center;
+      color: rgba(0,0,0,0.45);
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .tag {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.25);
+      color: var(--green);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .about-text p {
+      color: rgba(0,0,0,0.7);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+
+    .about-text p strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* ─── PROGRAM ─────────────────────────────────────── */
+    .program {
+      background: var(--black);
+    }
+
+    .program-header {
+      margin-bottom: 56px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--dark2);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(34,168,48,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .feature-icon {
+      width: 65px;
+      height: 65px;
+      background: transparent;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      color: rgba(0,0,0,0.5);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    /* ─── HOW IT WORKS ────────────────────────────────── */
+    .how {
+      background: var(--dark);
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 52px;
+      max-width: 640px;
+    }
+
+    .step {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 23px;
+      top: 52px;
+      width: 2px;
+      height: calc(100% - 20px);
+      background: linear-gradient(to bottom, rgba(34,197,94,0.4), rgba(34,197,94,0.05));
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: var(--green);
+      color: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-content {
+      padding-bottom: 40px;
+    }
+
+    .step-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      color: rgba(0,0,0,0.5);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* ─── MENTAL RESILIENCE ───────────────────────────── */
+    .mental {
+      background: var(--dark);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .mental-content {
+      text-align: center;
+    }
+    .mental-content .section-sub {
+      margin: 0 auto;
+      max-width: 640px;
+    }
+    .mental-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) {
+      .mental-pillars { grid-template-columns: 1fr; }
+    }
+    .mental-pillar {
+      background: var(--card);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      border-top: 3px solid transparent;
+    }
+    .mental-pillar:nth-child(1) { border-top-color: #9b59b6; }
+    .mental-pillar:nth-child(2) { border-top-color: #e67e22; }
+    .mental-pillar:nth-child(3) { border-top-color: var(--green); }
+    .mental-icon {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+    .mental-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .mental-pillar:nth-child(1) .mental-title { color: #b370d4; }
+    .mental-pillar:nth-child(2) .mental-title { color: #f39c47; }
+    .mental-pillar:nth-child(3) .mental-title { color: var(--green); }
+    .mental-desc {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── CTA BAND ────────────────────────────────────── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .cta-band p {
+      font-size: 1.1rem;
+      color: rgba(0,0,0,0.65);
+      margin-bottom: 36px;
+    }
+
+    .cta-band .btn-dark {
+      background: var(--red);
+      color: var(--black);
+      border: none;
+      padding: 16px 44px;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-band .btn-dark:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    .contact {
+      background: var(--black);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .contact-info h2 span {
+      color: var(--green);
+    }
+
+    .contact-info p {
+      color: rgba(0,0,0,0.5);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(0,0,0,0.65);
+      font-size: 0.95rem;
+    }
+
+    .channel-icon-link {
+      width: 52px;
+      height: 52px;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .channel-icon-link:hover {
+      background: rgba(34,197,94,0.2);
+      border-color: rgba(34,197,94,0.5);
+      transform: translateY(-2px);
+    }
+
+    .channel-link {
+      text-decoration: none;
+      color: rgba(0,0,0,0.65);
+      transition: all 0.2s;
+      border-radius: 12px;
+      padding: 4px 8px 4px 4px;
+    }
+
+    .channel-link:hover {
+      color: var(--green);
+      background: rgba(34,197,94,0.07);
+    }
+
+    .channel-link:hover .channel-icon {
+      border-color: rgba(34,197,94,0.5);
+      background: rgba(34,197,94,0.15);
+    }
+
+    .channel-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    /* ─── FORM ────────────────────────────────────────── */
+    .contact-form {
+      background: var(--dark2);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .form-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(0,0,0,0.6);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(0,0,0,0.05);
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: var(--white);
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.97rem;
+      direction: rtl;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      background: rgba(34,197,94,0.05);
+    }
+
+    .form-group select option {
+      background: var(--dark2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-row-split {
+      display: flex;
+      gap: 12px;
+    }
+
+    .form-row-split .form-group {
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .form-row-split {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--red);
+      color: var(--black);
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      font-family: 'Heebo', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--red-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(239,68,68,0.3);
+    }
+
+    .form-note {
+      text-align: center;
+      color: rgba(0,0,0,0.3);
+      font-size: 0.8rem;
+      margin-top: 14px;
+    }
+
+    /* success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .form-success .success-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .form-success h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: var(--green);
+    }
+
+    .form-success p {
+      color: rgba(0,0,0,0.55);
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      z-index: 9998;
+      transition: transform 0.2s ease;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background: var(--dark2);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .footer-name span {
+      color: var(--green);
+    }
+
+    .footer-sub {
+      color: rgba(0,0,0,0.3);
+      font-size: 0.82rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(34,197,94,0.15);
+      color: var(--green);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      background: rgba(34,197,94,0.15);
+      color: var(--green);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 14px 20px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 110px 20px 60px;
+      }
+
+      section {
+        padding: 64px 20px;
+      }
+
+      .contact-form {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-inner {
+        gap: 32px;
+      }
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  /* ─── SPLASH SCREEN ──────────────────────────────── */
+  #splash {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    gap: 16px;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  #splash.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #splash .splash-name {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--green);
+    letter-spacing: 2px;
+  }
+
+  #splash .splash-sub {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  #splash .splash-emoji {
+    font-size: 3.5rem;
+    animation: pulse 0.8s ease infinite alternate;
+  }
+
+  @keyframes pulse {
+    from { transform: scale(1); }
+    to   { transform: scale(1.15); }
+  }
+
+  /* ─── TOMATO PALETTE – כל הסקציות מלבד hero + nav ─── */
+  .stats-bar, .about, .program, .how, .mental,
+  .cta-band, .contact, footer, #splash {
+    --green: #22a830;
+    --green-dark: #1a7a24;
+    --green-light: #2ecc47;
+    --red: #C0392B;
+    --red-dark: #a93226;
+    --red-light: #e74c3c;
+  }
+
+  /* ─── כתב גדול = אדום, כתב קטן = ירוק ─── */
+  .section-title span { color: var(--red); }
+  .stat-number { color: var(--red); }
+  .about-name-big span { color: var(--red); }
+  .contact-info h2 span { color: var(--red); }
+  .section-tag { color: var(--green); }
+  .tag {
+    background: rgba(34,168,48,0.1);
+    border-color: rgba(34,168,48,0.3);
+    color: var(--green);
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle">
+    <span class="toggle-icon" id="toggle-icon">🌙</span>
+    <span id="toggle-label">מצב כהה</span>
+  </button>
+
+  <!-- SPLASH -->
+  <div id="splash">
+    <div class="splash-emoji">🍅</div>
+    <div class="splash-name">אחיה</div>
+    <div class="splash-sub">בן הרוש</div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo"> אחיה <span>בן הרוש🍅</span></div>
+    <a href="#contact" class="nav-cta">צור קשר</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge"> אימוני קליסטניקס אונליין 🍅</div>
+    <h1>
+      <span class="name-green">אחיה</span>
+      <span class="name-sub">בן הרוש</span>
+    </h1>
+    <p class="hero-tagline">
+      תוכנית אימונים <strong>מותאמת אישית</strong> לגוף שלך,<br />
+      בזמן שלך, מכל מקום בעולם.
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">התחל עכשיו</a>
+      <a href="#program" class="btn-secondary">קרא עוד</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      גלול למטה
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item fade-in">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">תוכנית אישית לכל מתאמן</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number"><img src="תמונות/min/Gemini_Generated_Image_tp60zxtp60zxtp60.jpg" alt="ללא ציוד" style="width:60px;height:60px;object-fit:contain;" /></div>
+        <div class="stat-label">ציוד נדרש. רק גוף ורצון</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">ללא גבולות. מכל מקום</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual fade-in">
+          <div class="about-card">
+            <img src="תמונות/תמונה אחיה.png" alt="אחיה בן הרוש" class="about-photo" />
+            <div class="about-name-big"><span>אחיה</span> בן הרוש</div>
+            <div class="about-title-card">מאמן קליסטניקס</div>
+            <div class="about-tags">
+              <span class="tag">קליסטניקס</span>
+              <span class="tag">אימוני כוח</span>
+              <span class="tag">תוכנית אישית</span>
+              <span class="tag">אונליין</span>
+              <span class="tag">משקל גוף</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text fade-in">
+          <div class="section-tag">מי אני</div>
+          <h2 class="section-title">קליסטניקס זה<br /><span>לא רק ספורט</span></h2>
+          <p>
+            היי, אני <strong>אחיה בן הרוש</strong>, מאמן קליסטניקס עם תשוקה אמיתית לאמנות של שליטה בגוף.
+            קליסטניקס לימד אותי שהגוף שלנו הוא הכלי החזק ביותר שיש לנו. ואני כאן כדי לעזור לך לנצל אותו.
+          </p>
+          <p>
+            <strong>לא צריך ניסיון קודם.</strong> לא צריך ציוד. לא צריך מכון יקר.
+            צריך רק את הרצון. ואני אדאג לכל השאר.
+          </p>
+          <p>
+            אני בונה לכל מתאמן תוכנית <strong>מותאמת אישית בדיוק לרמה, ליעדים ולזמן הפנוי שלו</strong>, עם ליווי צמוד לאורך כל הדרך.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="program" id="program">
+    <div class="section-inner">
+      <div class="program-header fade-in">
+        <div class="section-tag">מה מקבלים</div>
+        <h2 class="section-title">תוכנית שנבנית<br /><span>בשבילך בלבד</span></h2>
+        <p class="section-sub">כל מתאמן הוא שונה. לכן כל תוכנית שאני בונה היא ייחודית ומותאמת לגוף, לרמה ולמטרות שלך. אני, אחיה, אישית מלווה אותך בכל שלב – לא אסיסטנט, לא בוט. אני.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_y2hcxgy2hcxgy2hc.jpg" alt="תוכנית אישית" /></div>
+          <div class="feature-title">תוכנית אישית מלאה</div>
+          <div class="feature-desc">תוכנית אימונים מותאמת לרמה שלך, ליעדים שלך ולזמן הפנוי שיש לך. בלי תבניות מוכנות.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_4nbijd4nbijd4nbi.jpg" alt="ליווי בוואצפ" /></div>
+          <div class="feature-title">ליווי בוואצפ בהודעות קוליות</div>
+          <div class="feature-desc">אני תמיד זה שעונה. שאלה? עדכון? פידבק על אימון? מקבלים תשובה אישית בהודעה קולית ממני ישירות.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_shs7odshs7odshs7.jpg" alt="בונים בוידאו" /></div>
+          <div class="feature-title">בונים את התוכנית יחד בוידאו</div>
+          <div class="feature-desc">לא מקבלים תוכנית מוכנה. יושבים יחד בשיחת וידאו, מבינים מה אתה רוצה להשיג ובונים את התוכנית שלך בזמן אמת.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_ax52kbax52kbax52.jpg" alt="פידבק" /></div>
+          <div class="feature-title">פידבק אחרי כל אימון</div>
+          <div class="feature-desc">אחרי כל אימון מקבלים פידבק אישי ממני. מה עשית טוב, מה לשפר, ואיך להמשיך להתקדם.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_ag1jtcag1jtcag1j.jpg" alt="מכל מקום" /></div>
+          <div class="feature-title">מכל מקום בעולם</div>
+          <div class="feature-desc">הכל אונליין. מהבית, מהפארק, מהמלון. אין תירוצים ואין מגבלות מיקום.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_zdih12zdih12zdih.jpg" alt="לכל רמה" /></div>
+          <div class="feature-title">לכל רמה</div>
+          <div class="feature-desc">מתחיל שמעולם לא התאמן ועד מתאמן מנוסה שרוצה לפרוץ מגבלות. יש תוכנית בשבילך.</div>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><img src="תמונות/min/Gemini_Generated_Image_ydago3ydago3ydag.jpg" alt="קהילת המתאמנים" /></div>
+          <div class="feature-title">כניסה לקהילת המתאמנים</div>
+          <div class="feature-desc">מצטרפים לקהילה של אנשים שמתאמנים, מתקדמים ומעודדים אחד את השני. כי הדרך קלה יותר כשלא עושים אותה לבד.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="fade-in">
+        <div class="section-tag">איך זה עובד</div>
+        <h2 class="section-title">שלושה צעדים<br /><span>ומתחילים</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-in">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">ממלאים פרטים ויוצרים קשר</div>
+            <div class="step-desc">שולחים לי הודעה עם קצת מידע על הרמה שלך, המטרות שלך והזמן הפנוי שיש לך.</div>
+          </div>
+        </div>
+        <div class="step fade-in">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">בונים את התוכנית יחד בוידאו</div>
+            <div class="step-desc">יושבים יחד בשיחת וידאו. אני שואל, אתה עונה, ואנחנו בונים ביחד בזמן אמת את התוכנית המדויקת לך ולמה שאתה רוצה להשיג.</div>
+          </div>
+        </div>
+        <div class="step fade-in">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">מתחילים ומתקדמים יחד</div>
+            <div class="step-desc">מתחילים לאמן עם ליווי מלא בוואצפ. אני עונה בהודעות קוליות ונותן פידבק אישי אחרי כל אימון.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTAL RESILIENCE -->
+  <section class="mental" id="mental">
+    <div class="section-inner">
+      <div class="mental-content fade-in">
+        <div class="section-tag">מעבר לכושר</div>
+        <h2 class="section-title">כושר הוא רק<br /><span>ההתחלה</span></h2>
+        <p class="section-sub">אני מאמין שדרך אימוני קליסטניקס לא רק בונים גוף חזק – בונים אדם חזק. כל פעם שאתה מתגבר על אימון קשה, מרים ביצועים, עושה משהו שחשבת שאתה לא מסוגל – משהו בתוכך משתנה.</p>
+        <div class="mental-pillars">
+          <div class="mental-pillar fade-in">
+            <div class="mental-icon"><img src="תמונות/min/Gemini_Generated_Image_wjxxenwjxxenwjxx.jpg" alt="חוסן מנטלי" style="width:90px;height:90px;object-fit:contain;" /></div>
+            <div class="mental-title">חוסן מנטלי</div>
+            <div class="mental-desc">ללמוד לדחוף קצת יותר, לא לוותר, להמשיך כשזה קשה. זה מה שהאימון מלמד – ומה שנשאר איתך בחיים.</div>
+          </div>
+          <div class="mental-pillar fade-in">
+            <div class="mental-icon"><img src="תמונות/min/Gemini_Generated_Image_j7b3j1j7b3j1j7b3.jpg" alt="ביטחון עצמי" style="width:90px;height:90px;object-fit:contain;" /></div>
+            <div class="mental-title">ביטחון עצמי</div>
+            <div class="mental-desc">כשאתה רואה שאתה מתקדם, שאתה עושה דברים שלפני חודש לא יכולת – הביטחון בא מעצמו. מהתוצאות האמיתיות.</div>
+          </div>
+          <div class="mental-pillar fade-in">
+            <div class="mental-icon"><img src="תמונות/min/Gemini_Generated_Image_kjqw9pkjqw9pkjqw.jpg" alt="תחושת מסוגלות" style="width:90px;height:90px;object-fit:contain;" /></div>
+            <div class="mental-title">תחושת מסוגלות</div>
+            <div class="mental-desc">"אני מסוגל" – שלוש מילים שמשנות הכל. כשאתה מוכיח לעצמך בגוף, אתה מוכיח לעצמך בכל דבר אחר.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <h2>מוכן להתחיל?</h2>
+    <p>תוכנית האימונים שמתאימה לך מחכה לך. בוא נבנה אותה יחד.</p>
+    <a href="#contact" class="btn-dark">צור קשר עכשיו</a>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <div class="section-tag">יצירת קשר</div>
+          <h2 class="section-title">בוא נדבר<br /><span>ונתחיל</span></h2>
+          <p>מלא את הטופס ואחזור אליך בהקדם. בלי התחייבות. רק שיחה קצרה ראשונה.</p>
+        </div>
+
+        <div class="fade-in">
+          <div class="contact-form" id="contactFormWrapper">
+            <div class="form-title">שלח הודעה</div>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">שם הלקוח</label>
+                <input type="text" id="name" placeholder="מה שמך?" required />
+              </div>
+
+              <div style="display:flex; gap:12px;">
+                <div class="form-group" style="flex:2;">
+                  <label for="phone">טלפון</label>
+                  <input type="tel" id="phone" placeholder="050-0000000" required />
+                </div>
+                <div class="form-group" style="flex:1;">
+                  <label for="age">גיל</label>
+                  <input type="number" id="age" placeholder="גיל" min="10" max="99" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="level">רמת מתאמן</label>
+                <select id="level" required>
+                  <option value="" disabled selected>בחר רמה</option>
+                  <option value="מתחיל">מתחיל — אין ניסיון בכושר</option>
+                  <option value="בינוני">בינוני — כמה חודשים, יש בסיס</option>
+                  <option value="מתקדם">מתקדם — שנה ומעלה</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="source">מקור הגעה</label>
+                <select id="source" required>
+                  <option value="" disabled selected>איך הגעת אלינו?</option>
+                  <option value="אינסטגרם">אינסטגרם</option>
+                  <option value="טיקטוק">טיקטוק</option>
+                  <option value="יוטיוב">יוטיוב</option>
+                  <option value="פייסבוק">פייסבוק</option>
+                  <option value="אחר">אחר</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="skills">רקע וסקילים</label>
+                <textarea id="skills" placeholder="ספר לי על הרקע שלך בכושר, מה אתה יודע לעשות..."></textarea>
+              </div>
+
+              <button type="submit" class="form-submit">שלח ואחזור אליך בקרוב 🚀</button>
+              <p class="form-note">אחזור אליך תוך 24 שעות</p>
+            </form>
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon">✅</div>
+              <h3>ההודעה נשלחה!</h3>
+              <p>תודה שפנית. אחיה יחזור אליך בהקדם.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name"><span>אחיה</span> בן הרוש 🍅</div>
+    <div class="footer-sub">• אימוני קליסטניקס •</div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/achya_ben_harush/" target="_blank" class="social-link" title="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@achya_ben_harush" target="_blank" class="social-link" title="TikTok">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/%D7%90%D7%97%D7%99%D7%94-%D7%91%D7%9F-%D7%94%D7%A8%D7%95%D7%A9-%D7%94%D7%93%D7%A3-%D7%94%D7%A8%D7%A9%D7%9E%D7%99-100068198155764/" target="_blank" class="social-link" title="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://youtube.com/channel/UCT4Y0OlDkRzpxVyG1M6Z9wA?si=ha97nqe_umxZXyBj" target="_blank" class="social-link" title="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+
+    </div>
+    <div class="footer-sub" style="margin-top:4px;">© 2026 כל הזכויות שמורות</div>
+  </footer>
+
+  <!-- כפתור וואצפ קבוע -->
+  <a href="https://wa.me/972559103387" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.74 5.494 2.035 7.805L0 32l8.418-2.007A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.79-1.867l-.487-.29-5.001 1.193 1.24-4.862-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.878c-.398-.199-2.354-1.162-2.718-1.294-.365-.133-.63-.199-.896.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.36-2.215-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.763-.013c-.265 0-.696.1-.1061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.118c.199.265 2.808 4.287 6.803 5.999.951.41 1.693.655 2.272.839.955.303 1.824.26 2.511.158.766-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.099-.166-.365-.265-.763-.464z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Splash screen
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+    }, 1200);
+
+    // Intersection Observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Form submit → Google Apps Script → Google Sheets
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzkBUtMv0dftokQU2LYc4YuNp0f-Ou9bmRFKu4VnMoZM7HOb6Nu9KlgCviqUZbYwZSeSw/exec';
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = this.querySelector('.form-submit');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'שולח...';
+
+      const payload = {
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        age: document.getElementById('age').value.trim(),
+        level: document.getElementById('level').value,
+        background: document.getElementById('skills').value.trim(),
+        source: document.getElementById('source').value
+      };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(payload)
+        });
+
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } catch (err) {
+        alert('השליחה נכשלה. בדוק את קישור ה-Apps Script ונסה שוב.');
+        console.error(err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('toggle-icon');
+    const label = document.getElementById('toggle-label');
+    const html = document.documentElement;
+
+    // Start in light mode (no attribute)
+    function updateToggle() {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      icon.textContent = isDark ? '☀️' : '🌙';
+      label.textContent = isDark ? 'מצב בהיר' : 'מצב כהה';
+    }
+
+    toggle.addEventListener('click', () => {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? '' : 'dark');
+      updateToggle();
+    });
+
+    updateToggle();
+  </script>
+</body>
+</html>
