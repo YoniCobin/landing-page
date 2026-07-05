@@ -327,6 +327,12 @@
     box-shadow:0 8px 18px rgba(0,0,0,.22);
     animation-play-state:paused;
   }
+  .cta-success{
+    display:none;text-align:center;font-weight:800;font-size:15px;
+    color:var(--green);margin:14px 0 0;
+    opacity:0;transition:opacity .4s ease;
+  }
+  .cta-success.is-shown{display:block;opacity:1;}
 
   @media(min-width:641px){
     .cta-card{
@@ -524,6 +530,7 @@
           <input type="text" name="level" placeholder="רמה בקליסטניקס:">
           <button type="submit" class="cta-submit-btn">אני מוכן להתחיל!</button>
         </form>
+        <p id="ctaSuccess" class="cta-success">✔ הפרטים נשלחו בהצלחה! נחזור אליך בהקדם.</p>
       </div>
     </div>
   </section>
@@ -550,7 +557,9 @@
 (function(){
   var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxX9YAY7GhNGKJG_CdtQ4rO42Wr0ZPBwYSRrgWUQ2I0PZVVFb-oGlvIElClciK74so/exec';
   var form = document.getElementById('ctaForm');
+  var successMsg = document.getElementById('ctaSuccess');
   if(!form) return;
+  var hideTimer = null;
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var btn = form.querySelector('.cta-submit-btn');
@@ -568,7 +577,14 @@
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(data)
     }).then(function(){
-      form.innerHTML = '<p style="font-weight:800;font-size:18px;text-align:center;margin:0;">תודה! קיבלנו את הפרטים שלך ונחזור אליך בהקדם 🎉</p>';
+      form.reset();
+      btn.disabled = false;
+      btn.textContent = 'אני מוכן להתחיל!';
+      if(successMsg){
+        successMsg.classList.add('is-shown');
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function(){ successMsg.classList.remove('is-shown'); }, 5000);
+      }
     }).catch(function(){
       btn.disabled = false;
       btn.textContent = 'אני מוכן להתחיל!';
