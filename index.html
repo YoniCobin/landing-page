@@ -517,11 +517,11 @@
       <div class="cta-content">
         <h2 class="cta-gradient-heading">מוכן לגלות את<br>היכולות שלך?</h2>
         <p>השאר פרטים כאן למטה לתיאום שיחת התאמה לתוכנית של אחיה.</p>
-        <form class="cta-form" onsubmit="return false;">
-          <input type="text" placeholder="שם מלא:" required>
-          <input type="number" placeholder="גיל:" required>
-          <input type="tel" placeholder="טלפון:" required>
-          <input type="text" placeholder="רמה בקליסטניקס:">
+        <form class="cta-form" id="ctaForm">
+          <input type="text" name="name" placeholder="שם מלא:" required>
+          <input type="number" name="age" placeholder="גיל:" required>
+          <input type="tel" name="phone" placeholder="טלפון:" required>
+          <input type="text" name="level" placeholder="רמה בקליסטניקס:">
           <button type="submit" class="cta-submit-btn">אני מוכן להתחיל!</button>
         </form>
       </div>
@@ -545,6 +545,36 @@
     });
   }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(el){ observer.observe(el); });
+})();
+
+(function(){
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxX9YAY7GhNGKJG_CdtQ4rO42Wr0ZPBwYSRrgWUQ2I0PZVVFb-oGlvIElClciK74so/exec';
+  var form = document.getElementById('ctaForm');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('.cta-submit-btn');
+    var data = {
+      name:  form.name.value,
+      age:   form.age.value,
+      phone: form.phone.value,
+      level: form.level.value
+    };
+    btn.disabled = true;
+    btn.textContent = 'שולח...';
+    fetch(SHEET_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    }).then(function(){
+      form.innerHTML = '<p style="font-weight:800;font-size:18px;text-align:center;margin:0;">תודה! קיבלנו את הפרטים שלך ונחזור אליך בהקדם 🎉</p>';
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'אני מוכן להתחיל!';
+      alert('משהו השתבש בשליחה, נסה שוב או פנה אלינו בוואטסאפ.');
+    });
+  });
 })();
 </script>
 </body>
