@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>אחיה בן הרוש | תוכנית ליווי קליסטניקס</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   @font-face{
     font-family:'CanvaBody';
@@ -45,6 +48,9 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:rgba(120,120,120,.6);border-radius:5px;}
   img{max-width:100%;display:block;}
   .wrap{max-width:600px;margin:0 auto;position:relative;background:var(--background);}
   @media(min-width:700px){.wrap{zoom:1.25;}}
@@ -56,7 +62,8 @@
   h1,h2,h3,strong,b,.btn-red,.btn-gradient,.bold-line,.chevrons-down,.gradient-line,
   .chevron-set,.node,.notice-box .red-line,.notice-box .lead,.check-list li,
   .enter-pill,.footer-logo,.brush-banner span{
-    font-family:var(--font-bold);
+    font-family:var(--font-body);
+    font-weight:700;
   }
   .gradient-text{
     background:var(--gradient-warm);
@@ -128,7 +135,7 @@
   .timeline-section{padding:56px 24px 24px;text-align:center;}
   .timeline-section h2{font-size:26px;font-weight:800;}
   .timeline-section h2 .u{text-decoration:underline;text-decoration-color:var(--primary);text-underline-offset:6px;}
-  .timeline{position:relative;width:100%;aspect-ratio:600/712;margin:40px 0;}
+  .timeline{position:relative;width:100%;aspect-ratio:600/712;margin:40px 0;overflow:hidden;}
   .timeline-line{position:absolute;top:0;left:50%;transform:translateX(-50%);height:100%;width:auto;max-width:none;z-index:0;}
   .t-icon{position:absolute;z-index:1;background-repeat:no-repeat;background-size:contain;background-position:center;transform:translate(-50%,-50%);}
   .t-label{position:absolute;z-index:1;transform:translateX(-50%);font-weight:800;font-size:14.5px;text-align:center;width:23.33%;}
@@ -151,7 +158,7 @@
   .mission-text{padding:16px 26px 40px;text-align:center;}
   .mission-text h2{font-size:30px;font-weight:900;margin-bottom:22px;}
   .mission-text h2 span{display:block;font-size:30px;}
-  .mission-text p{margin:14px 0;}
+  .mission-text p{margin:14px auto;max-width:460px;}
   .mission-text .highlight{background:rgba(138,196,57,0.45);padding:2px 3px;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
   .chevrons-down{color:var(--primary);font-size:22px;font-weight:900;text-align:center;margin:20px 0;letter-spacing:2px;transform:rotate(90deg);display:block;direction:ltr;}
   .bold-line{font-weight:800;font-size:19px;}
@@ -174,15 +181,14 @@
     -webkit-text-stroke:2px #111;
     max-width:520px;
   }
-  .calisthenics-bar{background:var(--surface);height:60px;margin-top:10px;}
 
   /* ---------- STORY DARK ---------- */
   .story-dark{
-    background:radial-gradient(ellipse at 80% 30%, rgba(180,120,10,0.35), transparent 60%), var(--surface);
+    background:var(--surface);
     color:#fff;padding:44px 26px;text-align:center;
   }
-  .story-dark p{color:#f2f2f2;}
-  .story-dark .gradient-line{display:block;font-weight:800;}
+  .story-dark p{color:#f2f2f2;font-family:'Heebo',sans-serif;font-weight:700;}
+  .story-dark .gradient-line{display:block;font-family:'Heebo',sans-serif;font-weight:700;}
   .brush-banner{
     position:relative;margin:30px auto 26px;width:100%;max-width:420px;
     aspect-ratio:93.2/10.3;
@@ -193,7 +199,7 @@
   }
   .brush-banner span{
     position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:15px;color:#fff;padding:0 20px;text-align:center;
+    font-family:'Heebo',sans-serif;font-weight:700;font-size:15px;color:#fff;padding:0 20px;text-align:center;
   }
   .bullet-list{list-style:none;margin:0;padding:0;text-align:right;}
   .bullet-list li{
@@ -201,8 +207,8 @@
   }
   .bullet-list li:last-child{border-bottom:none;}
   .bullet-list .bullet-icon{width:34px;height:34px;flex-shrink:0;margin-top:2px;background-image:url('תמונות/1.svg');background-repeat:no-repeat;background-size:238.8% 238.8%;background-position:49.9% 49.9%;}
-  .bullet-list strong{display:block;color:var(--green);font-size:17px;margin-bottom:4px;}
-  .bullet-list p{margin:0;color:#e8e8e8;font-size:16px;}
+  .bullet-list strong{display:block;color:var(--green);font-family:'Heebo',sans-serif;font-size:17px;font-weight:500;margin-bottom:4px;}
+  .bullet-list p{margin:0;color:#e8e8e8;font-family:'Heebo',sans-serif;font-weight:300;font-size:16px;}
 
   /* ---------- GOAL SECTION ---------- */
   .goal-section{padding:50px 28px;text-align:center;position:relative;overflow:hidden;}
@@ -232,7 +238,7 @@
     padding:34px 24px 100px;margin-bottom:34px;overflow:hidden;
   }
   .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;}
-  .card-head h3{color:#fff;font-size:19px;font-weight:800;text-align:right;}
+  .card-head h3{flex:1;color:#fff;font-size:19px;font-weight:800;text-align:right;}
   .card-head .card-icon{
     width:100px;height:100px;flex-shrink:0;margin:-18px -8px 0 0;
     background-image:url('assets/tomato-red.png');background-repeat:no-repeat;
@@ -241,20 +247,23 @@
   .card p{color:#e5e5e5;font-size:15.5px;max-width:68%;margin:10px auto;}
   .card p strong{color:#fff;}
   .card-num{
+    display:flex;align-items:center;gap:10px;
     font-family:'CanvaBody','Heebo',sans-serif;
-    font-size:80px;
+    font-size:100px;
+    position:absolute;left:16px;bottom:0px;line-height:1;opacity:.95;
+  }
+  .card-num span{
     background:var(--gradient-warm);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
-    position:absolute;left:16px;bottom:0px;line-height:1;opacity:.95;
   }
 
   /* ---------- URGENCY ---------- */
-  .urgency{position:relative;padding:50px 26px 40px;text-align:center;overflow:hidden;}
-  .urgency h2{font-size:30px;font-weight:900;position:relative;z-index:2;}
-  .urgency p{position:relative;z-index:2;margin-top:18px;}
-  .splash{position:absolute;width:200px;opacity:.85;z-index:1;}
-  .splash-left{top:-10px;left:-40px;}
-  .splash-right{top:-10px;right:-50px;transform:scaleX(-1);}
+  .urgency{position:relative;padding:78px 26px 40px;text-align:center;overflow:hidden;}
+  .urgency h2{font-size:30px;font-weight:800;position:relative;z-index:2;}
+  .urgency p{position:relative;z-index:2;margin-top:18px;font-weight:400;}
+  .splash{position:absolute;width:170px;opacity:.7;z-index:1;}
+  .splash-left{top:-30px;left:-55px;}
+  .splash-right{top:-30px;right:-65px;transform:scaleX(-1);}
   .notice-box{
     background:var(--surface);color:#fff;
     margin-top:40px;padding:14px;text-align:center;position:relative;z-index:2;
@@ -264,9 +273,9 @@
   .notice-box .red-line{color:var(--primary);font-weight:900;font-size:19px;border-top:2px solid var(--primary);border-bottom:2px solid var(--primary);display:inline-block;padding:8px 4px;margin-bottom:18px;}
   .notice-box .lead{font-weight:800;margin-bottom:10px;color:#fff;}
   .check-list{list-style:none;padding:0;margin:0;max-width:280px;margin:0 auto;}
-  .check-list li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #2c2c2c;font-weight:700;}
+  .check-list li{display:flex;justify-content:flex-start;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #2c2c2c;font-weight:700;}
   .check-list li:last-child{border-bottom:none;}
-  .check-list li::after{content:"✔";color:var(--green);font-weight:900;}
+  .check-list li::before{content:"✔";color:var(--green);font-weight:900;}
 
   /* ---------- FINAL CTA ---------- */
   .enter-pill{
@@ -311,13 +320,13 @@
   .cta-form{width:100%;display:flex;flex-direction:column;gap:16px;}
   .cta-form input{
     width:100%;padding:16px 20px;border-radius:50px;border:2px solid #181818;
-    font-family:'Heebo',sans-serif;font-size:15px;text-align:right;background:#fff;color:#181818;
+    font-family:'Heebo',sans-serif;font-size:15px;text-align:right;direction:rtl;background:#fff;color:#181818;
   }
   .cta-form input::placeholder{color:#181818;}
   .cta-submit-btn{
     display:inline-block;margin-top:14px;align-self:flex-start;
     background:linear-gradient(90deg,#a2d82a 0%,#ff0000 100%);
-    font-family:var(--font-bold);
+    font-family:var(--font-body);
     color:#181818;font-weight:800;font-size:16px;padding:16px 34px;border-radius:50px;border:none;cursor:pointer;
     transition:transform .25s ease, box-shadow .25s ease;
     animation:pulseGrad 2.6s ease-in-out infinite;
@@ -339,7 +348,6 @@
       max-width:1000px;margin:0 auto;
       grid-template-columns:64% 36%;
       grid-template-areas:"content image";
-      aspect-ratio:1301/1102;
       container-type:inline-size;
     }
     .cta-image-panel{height:100%;}
@@ -355,7 +363,7 @@
   }
 
   @media(min-width:601px){
-    .card-num{font-size:110px;}
+    .card-num{font-size:130px;}
   }
 </style>
 </head>
@@ -393,7 +401,7 @@
   <section class="mission-text reveal">
     <h2>האימונים בשבילי<br><span class="gradient-text">הם הרבה מעבר לכושר</span></h2>
     <p>הם לא עוד מטלה שצריך לעשות, אלא יכולים להיות רגע מהנה ובונה עבורנו, שאנחנו מחכים להם כל פעם מחדש.</p>
-    <p>האתגר מקדם אותנו למקומות חדשים. <span class="highlight">האימונים יכולים להיות כיפיים.</span></p>
+    <p>האתגר מקדם אותנו למקומות חדשים.<br><span class="highlight">האימונים יכולים להיות כיפיים.</span></p>
     <div class="chevrons-down">❯❯</div>
     <p class="bold-line">ולכן עד עכשיו לא הפסקתי להתאמן והגעתי לאיפה שאני היום.</p>
   </section>
@@ -402,7 +410,6 @@
   <section class="calisthenics-section reveal">
     <img src="images/calisthenics_photo.jpg" alt="CALISTHENICS" style="max-width:480px;margin:0 auto;">
   </section>
-  <div class="calisthenics-bar"></div>
 
   <!-- STORY DARK -->
   <section class="story-dark reveal">
@@ -439,8 +446,8 @@
   <section class="goal-section reveal">
     <h2 class="gradient-text">המטרה שלי היום</h2>
     <p>החלטתי להנגיש את כל הידע שצברתי לכדי תוכנית ליווי אישית מיוחדת כדי לעזור גם לך</p>
-    <p><strong>להתחזק, להשתפר ולשלוט בגוף שלך.</strong></p>
-    <p>לא בעזרת "קיצורי דרך", אלא דרך בניית אישיות חזקה וחוסן מנטלי שמגיע עם ההתמדה והנאה באימונים.</p>
+    <p>להתחזק, להשתפר ולשלוט בגוף שלך.</p>
+    <p><strong>לא בעזרת "קיצורי דרך", אלא דרך בניית אישיות חזקה וחוסן מנטלי שמגיע עם ההתמדה והנאה באימונים.</strong></p>
     <div class="cta-row">
       <span class="chevron-set">»»»</span>
       <a href="#signup" class="btn-red">אני רוצה להצטרף!</a>
@@ -468,7 +475,7 @@
       <p>אנחנו לא מנחשים.</p>
       <p>נפתח בשיחת אפיון שבה נבנה יחד <strong>דרך עבודה מדוייקת שמותאמת בדיוק ללו"ז שלך</strong> - בין אם אתה בצבא, בלימודים או בעבודה.</p>
       <p>נכין יחד תוכנית אימונים אישית שמותאמת אליך, כדי שתדע איך להתאמן נכון.</p>
-      <div class="card-num">01</div>
+      <div class="card-num"><span>01</span></div>
     </div>
     <div class="card reveal">
       <div class="card-head">
@@ -478,7 +485,7 @@
       <p>ליווי צמוד שלי אצלך בכיס.</p>
       <p>אתה שולח לי סרטונים מהאימונים, ואני נותן פידבקים מה טוב ומה פחות טוב, איך אפשר עוד להשתפר ולהביא את הטכניקה שלך למושלמת כדי למנוע פציעות ולהביא אותך אל היעד שלך בדרך הטובה ביותר.</p>
       <p>אין תחליף לפידבק אישי.</p>
-      <div class="card-num">02</div>
+      <div class="card-num"><span>02</span></div>
     </div>
     <div class="card reveal">
       <div class="card-head">
@@ -488,7 +495,7 @@
       <p>כניסה לנבחרת של עשרות מתאמנים שחותרים לאותה מטרה.</p>
       <p>כאן לא משווים קוביות בבטן -</p>
       <p><strong>כאן חוגגים התקדמות, משתפים ידע ודוחפים אחד את השני קדימה.</strong> תחושת שייכות היא מנוע ההתמדה הכי חזק שיש. וכמובן שיהיו גם סרטוני ערך ואתגרים לכל הרמות.</p>
-      <div class="card-num">03</div>
+      <div class="card-num"><span>03</span></div>
     </div>
   </section>
 
