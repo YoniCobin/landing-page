@@ -567,8 +567,11 @@
   var successMsg = document.getElementById('ctaSuccess');
   if(!form) return;
   var hideTimer = null;
+  var isSubmitting = false;
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    if(isSubmitting) return;
+    isSubmitting = true;
     var btn = form.querySelector('.cta-submit-btn');
     var data = {
       name:  form.name.value,
@@ -587,6 +590,7 @@
       form.reset();
       btn.disabled = false;
       btn.textContent = 'אני מוכן להתחיל!';
+      isSubmitting = false;
       if(successMsg){
         successMsg.classList.add('is-shown');
         clearTimeout(hideTimer);
@@ -595,6 +599,7 @@
     }).catch(function(){
       btn.disabled = false;
       btn.textContent = 'אני מוכן להתחיל!';
+      isSubmitting = false;
       alert('משהו השתבש בשליחה, נסה שוב או פנה אלינו בוואטסאפ.');
     });
   });
