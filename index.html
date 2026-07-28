@@ -289,9 +289,6 @@
   }
   .final-cta{padding:34px 20px 20px;}
   .cta-card{
-    display:grid;
-    grid-template-columns:1fr;
-    grid-template-areas:"image" "content";
     overflow:hidden;
     border-radius:28px;
     border:6px solid transparent;
@@ -299,17 +296,7 @@
       linear-gradient(#fff,#fff) padding-box,
       linear-gradient(160deg,#ff0000 0%,#a2d82a 100%) border-box;
   }
-  .cta-image-panel{
-    grid-area:image;
-    width:100%;height:340px;min-height:0;min-width:0;
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-  }
-  .cta-image-panel img{
-    max-width:100%;max-height:100%;width:auto;height:auto;
-    object-fit:contain;display:block;
-  }
-  .cta-content{grid-area:content;padding:36px 28px 30px;text-align:right;}
+  .cta-content{padding:36px 28px 30px;text-align:right;}
   .cta-gradient-heading{
     font-size:32px;font-weight:900;line-height:1.15;margin:0 0 20px;
     background:linear-gradient(90deg,#a2d82a 0%,#ff0000 100%);
@@ -345,21 +332,12 @@
 
   @media(min-width:641px){
     .cta-card{
-      max-width:1000px;margin:0 auto;
-      grid-template-columns:64% 36%;
-      grid-template-areas:"content image";
-      container-type:inline-size;
+      max-width:600px;margin:0 auto;
     }
-    .cta-image-panel{height:100%;}
     .cta-content{
       display:flex;flex-direction:column;justify-content:flex-start;
-      padding:8.5cqw 5.5cqw 4.6cqw 4.4cqw;
+      padding:44px 40px 36px;
     }
-    .cta-gradient-heading{font-size:7cqw;line-height:1.15;margin:0 0 6.2cqw;}
-    .cta-content p{font-size:2cqw;line-height:1.6;margin:0 0 4.5cqw;}
-    .cta-form{gap:1.75cqw;}
-    .cta-form input{padding:1.65cqw 4cqw;font-size:1.8cqw;}
-    .cta-submit-btn{margin-top:2.1cqw;padding:2cqw 4cqw;font-size:1.9cqw;}
   }
 
   @media(min-width:601px){
@@ -524,9 +502,6 @@
   <!-- FINAL CTA -->
   <section class="final-cta reveal" id="signup">
     <div class="cta-card">
-      <div class="cta-image-panel">
-        <img src="assets/handstand-full.png" alt="אחיה בן הרוש בעמידת ידיים">
-      </div>
       <div class="cta-content">
         <h2 class="cta-gradient-heading">מוכן לגלות את<br>היכולות שלך?</h2>
         <p>השאר פרטים כאן למטה לתיאום שיחת התאמה לתוכנית של אחיה.</p>
