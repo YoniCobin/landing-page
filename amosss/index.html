@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>אחיה בן הרוש | הדף סגור כרגע</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'CanvaBody';
+    src:url('../fonts/canva-body.woff') format('woff');
+    font-weight:400;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'CanvaBold';
+    src:url('../fonts/canva-bold.woff') format('woff');
+    font-weight:700;font-style:normal;font-display:swap;
+  }
+  :root{
+    --font-body:'CanvaBody','Heebo',sans-serif;
+    --font-bold:'CanvaBold','Heebo',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:var(--font-bold);
+    direction:rtl;
+    color:#fff;
+    background:#04060f;
+    -webkit-font-smoothing:antialiased;
+    min-height:100dvh;
+  }
+
+  .page{
+    position:relative;
+    min-height:100dvh;
+    overflow:hidden;
+    background:
+      radial-gradient(120% 85% at 50% 8%, #2f63e2 0%, #1c43bd 26%, #102a86 48%, #071343 72%, #04060f 100%);
+    display:flex;
+    flex-direction:column;
+    padding:clamp(28px,6vw,56px) clamp(22px,6vw,64px) clamp(26px,5vw,52px);
+  }
+
+  /* halftone dots on the whole page */
+  .page::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.16) 1.3px, transparent 1.4px);
+    background-size:13px 13px;
+    opacity:.55;
+    pointer-events:none;
+  }
+
+  /* denser dot block, top-left corner */
+  .corner-dots{
+    position:absolute;
+    top:clamp(18px,4vw,42px);
+    left:clamp(10px,3vw,34px);
+    width:clamp(150px,26vw,250px);
+    height:clamp(230px,40vw,400px);
+    background-image:radial-gradient(rgba(255,255,255,.5) 2.4px, transparent 2.6px);
+    background-size:29px 29px;
+    -webkit-mask-image:linear-gradient(200deg,#000 25%,transparent 85%);
+    mask-image:linear-gradient(200deg,#000 25%,transparent 85%);
+    pointer-events:none;
+  }
+
+  .content{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;}
+
+  /* ---- logo ---- */
+  .brand{text-align:center;margin-top:clamp(30px,7vw,60px);}
+  .brand svg{width:clamp(78px,15vw,120px);height:auto;margin:0 auto;display:block;}
+  .brand .kicker{
+    font-size:clamp(15px,3.2vw,20px);
+    font-weight:700;
+    margin-top:14px;
+    letter-spacing:.2px;
+  }
+  .brand .name{
+    font-size:clamp(24px,5.4vw,34px);
+    font-weight:800;
+    margin-top:2px;
+  }
+
+  /* ---- text ---- */
+  .headline{
+    text-align:center;
+    font-size:clamp(40px,10.5vw,74px);
+    font-weight:900;
+    line-height:1.1;
+    margin-top:clamp(38px,9vw,74px);
+  }
+  .body{
+    text-align:center;
+    margin-top:clamp(30px,7vw,58px);
+    font-size:clamp(20px,4.6vw,32px);
+    font-weight:700;
+    line-height:1.45;
+  }
+  .body p + p{margin-top:clamp(24px,5.5vw,44px);}
+
+  /* ---- bottom ---- */
+  .bottom{
+    margin-top:auto;
+    padding-top:clamp(46px,10vw,90px);
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-direction:row-reverse;
+    gap:20px;
+  }
+  .chevrons{
+    width:clamp(96px,20vw,165px);
+    height:auto;
+    flex:none;
+    opacity:.95;
+  }
+  .tagline{
+    text-align:right;
+    font-size:clamp(22px,5.2vw,38px);
+    font-weight:900;
+    line-height:1.28;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="corner-dots"></div>
+
+  <div class="content">
+
+    <div class="brand">
+      <!-- tomato -->
+      <svg viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="לוגו">
+        <path d="M60 40c24.3 0 44 17.6 44 42.5S84.3 125 60 125 16 107.4 16 82.5 35.7 40 60 40Z"
+              stroke="#fff" stroke-width="5"/>
+        <path d="M40 108c-8.5-5.5-13.5-14.5-13.5-25.5 0-8 2.8-15 7.7-20.5"
+              stroke="#fff" stroke-width="4.4" stroke-linecap="round"/>
+        <path d="M60 41.5V25" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+        <path d="M59 27c-5.5-8-13-12.5-22.5-13.5 4 8 9 13.5 15.5 16.5" stroke="#fff" stroke-width="4.4" stroke-linejoin="round"/>
+        <path d="M61 27c5.5-8 13-12.5 22.5-13.5-4 8-9 13.5-15.5 16.5" stroke="#fff" stroke-width="4.4" stroke-linejoin="round"/>
+        <path d="M56 33c-7-4.5-15-6-24-4.5 6.5 6 13.5 9 21 9.5" stroke="#fff" stroke-width="4.4" stroke-linejoin="round"/>
+        <path d="M64 33c7-4.5 15-6 24-4.5-6.5 6-13.5 9-21 9.5" stroke="#fff" stroke-width="4.4" stroke-linejoin="round"/>
+        <path d="M60 24c-2-7-1-13 2.5-19-6 3-9.5 8-10.5 14" stroke="#fff" stroke-width="4.4" stroke-linejoin="round"/>
+      </svg>
+      <div class="kicker">התוכנית של</div>
+      <div class="name">אחיה בן הרוש</div>
+    </div>
+
+    <h1 class="headline">שלום וברוך הבא!</h1>
+
+    <div class="body">
+      <p>יש כרגע עומס פניות לתוכנית,<br>ולכן הדף נחיתה סגור כרגע.</p>
+      <p>בהמשך נפתח אותו שוב מחדש!</p>
+    </div>
+
+    <div class="bottom">
+      <svg class="chevrons" viewBox="0 0 150 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 84 75 14l69 70v34L75 48 6 118Z" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M6 128 75 58l69 70v34L75 92 6 162Z" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/>
+        <path d="M6 172 75 102l69 70v34L75 136 6 206Z" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/>
+      </svg>
+
+      <div class="tagline">
+        שליטה פיזית.<br>
+        שליטה מנטלית.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
