@@ -40,6 +40,7 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
   body{
     font-family:var(--font-body);
     background:var(--background);
@@ -128,8 +129,22 @@
   }
 
   /* ---------- HERO (flattened banner image) ---------- */
-  .hero-banner{width:100%;line-height:0;}
+  .hero-banner{width:100%;line-height:0;position:relative;}
   .hero-banner img{width:100%;height:auto;}
+  /* clickable hotspot over the CTA button baked into hero_top.jpg (1366x3440) */
+  .hero-hotspot{
+    position:absolute;
+    left:57.4%;
+    top:16.44%;
+    width:34.8%;
+    height:3.40%;
+    border-radius:999px;
+    display:block;
+    z-index:3;
+    -webkit-tap-highlight-color:transparent;
+    text-indent:-9999px;
+    overflow:hidden;
+  }
 
   /* ---------- TIMELINE SECTION ---------- */
   .timeline-section{padding:56px 24px 24px;text-align:center;}
@@ -351,6 +366,7 @@
   <!-- HERO: flattened collage banner (photo + baked headline/testimonial, matches source design) -->
   <div class="hero-banner reveal">
     <img src="images/hero_top.jpg" alt="אחיה בן הרוש - תוכנית ליווי אונליין בקליסטניקס">
+    <a href="#signup" class="hero-hotspot" aria-label="אני רוצה להצטרף!">אני רוצה להצטרף!</a>
   </div>
 
   <!-- TIMELINE -->
