@@ -347,6 +347,13 @@
     font-family:'Heebo',sans-serif;font-size:15px;text-align:right;direction:rtl;background:#fff;color:#181818;
   }
   .cta-form input::placeholder{color:#181818;}
+  .cta-consent{
+    display:flex;align-items:flex-start;gap:10px;
+    font-family:'Heebo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;
+    color:#181818;text-align:right;
+  }
+  .cta-consent input{width:auto;flex-shrink:0;margin-top:3px;accent-color:#a2d82a;}
+  .cta-consent a{color:#181818;text-decoration:underline;font-weight:700;}
   .cta-submit-btn{
     display:inline-block;margin-top:14px;align-self:flex-start;
     background:linear-gradient(90deg,#a2d82a 0%,#ff0000 100%);
@@ -366,6 +373,11 @@
     opacity:0;transition:opacity .4s ease;
   }
   .cta-success.is-shown{display:block;opacity:1;}
+  .site-footer{
+    background:var(--surface);color:var(--muted);text-align:center;
+    padding:22px 20px 30px;font-size:12.5px;
+  }
+  .site-footer a{color:var(--muted);text-decoration:underline;}
 
   @media(min-width:641px){
     .cta-card{
@@ -575,12 +587,20 @@
           <input type="number" name="age" placeholder="גיל:" required>
           <input type="tel" name="phone" placeholder="טלפון:" required>
           <input type="text" name="level" placeholder="רמה בקליסטניקס:">
+          <label class="cta-consent">
+            <input type="checkbox" name="consent" required>
+            <span>קראתי ואני מסכים/ה ל<a href="privacy.html" target="_blank" rel="noopener">תנאי השימוש ומדיניות הפרטיות</a></span>
+          </label>
           <button type="submit" class="cta-submit-btn">אני מוכן להתחיל!</button>
         </form>
         <p id="ctaSuccess" class="cta-success">✔ הפרטים נשלחו בהצלחה! נחזור אליך בהקדם.</p>
       </div>
     </div>
   </section>
+
+  <footer class="site-footer">
+    <p>אחיה בן הרוש · <a href="tel:+972559103387">972-55-910-3387+</a> · <a href="privacy.html">מדיניות פרטיות ותנאי שימוש</a></p>
+  </footer>
 
 </div>
 <script>
@@ -617,7 +637,9 @@
       name:  form.name.value,
       age:   form.age.value,
       phone: form.phone.value,
-      level: form.level.value
+      level: form.level.value,
+      consent: form.consent.checked,
+      consentTimestamp: new Date().toISOString()
     };
     btn.disabled = true;
     btn.textContent = 'שולח...';
