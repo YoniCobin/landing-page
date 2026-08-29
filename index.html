@@ -271,6 +271,28 @@
     background:var(--gradient-warm);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
   }
+  .card-photo-frame{
+    position:relative;
+    width:100%; max-width:280px;
+    margin:2px auto 24px;
+    aspect-ratio:4/5;
+    border-radius:140px 140px 12px 12px;
+    overflow:hidden;
+    border:1px solid rgba(242,167,27,.45);
+    box-shadow:0 20px 40px -18px rgba(0,0,0,.7), 0 0 0 6px rgba(242,167,27,.07);
+  }
+  .card-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.05) contrast(1.03);}
+  .card-photo-frame::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(11,11,10,0) 55%, rgba(11,11,10,.6) 100%);
+  }
+  .card-photo-badge{
+    position:absolute; bottom:12px; left:50%; transform:translateX(-50%);
+    font-family:'Heebo',sans-serif; font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--surface);
+    background:var(--gradient-warm); padding:6px 14px; border-radius:999px;
+    font-weight:700; white-space:nowrap;
+  }
 
   /* ---------- URGENCY ---------- */
   .urgency{position:relative;padding:78px 26px 40px;text-align:center;overflow:hidden;}
@@ -509,7 +531,11 @@
         <div class="card-icon"></div>
         <h3>ציוד מקצועי עד הבית<br>(מקבילונים מעץ ממותגים) –</h3>
       </div>
-      <p>זה לא רק אונליין. אתה גם תרגיש את זה בידיים.</p>
+      <div class="card-photo-frame">
+        <img src="assets/parallettes.jpg" alt="מקבילונים מעץ ממותגים של התוכנית של אחיה בן הרוש">
+        <span class="card-photo-badge">עץ מלא · חריטת לייזר</span>
+      </div>
+      <p>זה לא רק אונליין. אתה גם תרגיש את זה ביידים.</p>
       <p>אתה תקבל מקבילונים מעץ בעיצוב ייחודי עם חריטת המיתוג של התוכנית ("שליטה פיזית. שליטה מנטלית.") שמגיעים אליך עם שליח עד הבית.</p>
       <p><strong>בסיס יציב ומקצועי לתרגול אלמנטים מתקדמים,</strong> שיאפשר לך להתאמן בעצימות גבוהה ובטכניקה מדויקת – בכל מקום.</p>
       <div class="card-num"><span>05</span></div>
